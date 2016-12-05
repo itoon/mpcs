@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class SP_Model extends CI_Model {
 
-	private $table_name          = ''; 
-	private $default_select      = ''; 
-	private $default_order_by    = ''; 
-	private $default_limit_start = 0; 
-	private $default_limit_end   = 100; 
+	protected $table_name          = ''; 
+	protected $default_select      = ''; 
+	protected $default_order_by    = ''; 
+	protected $default_limit_start = 0; 
+	protected $default_limit_end   = 100; 
 
 	public function __construct()
 	{
@@ -156,7 +156,8 @@ class SP_Model extends CI_Model {
 	{
 		if($where !== NULL)
 			$this->db->where($where);
-		$count = $this->db->count_all_results($this->table_name);
+		$count = $this->db->count_all_results($this->table_name);		
+		echo $this->table_name;
 		return $count;
 	}
 }
